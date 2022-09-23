@@ -1,43 +1,44 @@
 object Kurio: TKurio
-  Left = 364
-  Height = 488
-  Top = 169
-  Width = 649
+  Left = 0
+  Height = 657
+  Top = 0
+  Width = 1013
   Align = alClient
   Caption = 'Φειδίας'
-  ClientHeight = 468
-  ClientWidth = 649
-  Menu = MainMenu1
+  ClientHeight = 657
+  ClientWidth = 1013
+  Menu = KurioMenou
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   Position = poMainFormCenter
-  LCLVersion = '2.0.10.0'
   WindowState = wsMaximized
   object ScrollBox1: TScrollBox
     Left = 66
-    Height = 346
+    Height = 535
     Top = 72
-    Width = 583
+    Width = 947
     HorzScrollBar.Page = 200
     VertScrollBar.Page = 200
     Align = alClient
-    ClientHeight = 342
-    ClientWidth = 579
+    ClientHeight = 533
+    ClientWidth = 945
     TabOrder = 0
     object perioxh_sxediwn: TPageControl
       Left = 0
-      Height = 342
+      Height = 533
       Top = 0
-      Width = 579
+      Width = 945
       Align = alClient
       TabOrder = 0
     end
   end
   object Panel1: TPanel
     Left = 0
-    Height = 346
+    Height = 535
     Top = 72
     Width = 66
     Align = alLeft
-    ClientHeight = 346
+    ClientHeight = 535
     ClientWidth = 66
     TabOrder = 1
     object SpeedButton1: TSpeedButton
@@ -94,28 +95,31 @@ object Kurio: TKurio
       Height = 32
       Top = 8
       Width = 32
+      OnClick = SpeedButton2Click
     end
     object SpeedButton9: TSpeedButton
       Left = 1
       Height = 32
       Top = 40
       Width = 31
+      OnClick = SpeedButton9Click
     end
     object SpeedButton10: TSpeedButton
       Left = 32
       Height = 32
       Top = 40
       Width = 32
+      OnClick = SpeedButton10Click
     end
   end
   object Panel2: TPanel
     Left = 0
     Height = 38
     Top = 34
-    Width = 649
+    Width = 1013
     Align = alTop
     ClientHeight = 38
-    ClientWidth = 649
+    ClientWidth = 1013
     TabOrder = 2
     object SpeedButton3: TSpeedButton
       Left = 0
@@ -129,10 +133,10 @@ object Kurio: TKurio
     Left = 0
     Height = 34
     Top = 0
-    Width = 649
+    Width = 1013
     Align = alTop
     ClientHeight = 34
-    ClientWidth = 649
+    ClientWidth = 1013
     TabOrder = 3
     object koumpiDhmiourgias: TSpeedButton
       Left = 0
@@ -211,12 +215,12 @@ object Kurio: TKurio
   object Panel4: TPanel
     Left = 0
     Height = 50
-    Top = 418
-    Width = 649
+    Top = 607
+    Width = 1013
     Align = alBottom
     TabOrder = 4
   end
-  object MainMenu1: TMainMenu
+  object KurioMenou: TMainMenu
     Left = 128
     Top = 32
     object MenuItem1: TMenuItem
@@ -265,15 +269,19 @@ object Kurio: TKurio
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFF
         }
+        OnClick = MenuItem6Click
       end
       object MenuItem7: TMenuItem
         Caption = 'Άνοιγμα ...'
+        OnClick = MenuItem7Click
       end
-      object MenuItem8: TMenuItem
+      object epilogh_Apo9hkeush: TMenuItem
         Caption = 'Αποθήκευση'
+        OnClick = epilogh_Apo9hkeushClick
       end
-      object MenuItem9: TMenuItem
+      object epilogh_Apo9hkeush_Ws: TMenuItem
         Caption = 'Αποθήκευση ως ...'
+        OnClick = epilogh_Apo9hkeush_WsClick
       end
       object MenuItem10: TMenuItem
         Caption = 'Έξοδος'
@@ -291,23 +299,88 @@ object Kurio: TKurio
       object MenuItem13: TMenuItem
         Caption = 'Επικόλληση'
       end
+      object MenuItem9: TMenuItem
+        Caption = '-'
+      end
+      object epilogh_diagrafh: TMenuItem
+        Caption = 'Διαγραφή'
+        OnClick = epilogh_diagrafhClick
+      end
     end
     object MenuItem3: TMenuItem
       Caption = 'Εισαγωγή'
+      object epilogh_eisagwgh_keimeno: TMenuItem
+        Caption = 'Κείμενο'
+        OnClick = epilogh_eisagwgh_keimenoClick
+      end
     end
     object MenuItem4: TMenuItem
       Caption = 'Μορφή'
+      object epilogh_xrwma_grammhs: TMenuItem
+        Caption = 'Χρώμα γραμμής'
+        OnClick = epilogh_xrwma_grammhsClick
+      end
+      object epilogh_paxos_grammhs: TMenuItem
+        Caption = 'Πάχος γραμμής'
+        OnClick = epilogh_paxos_grammhsClick
+      end
+      object epilogh_xrwma_gemismatos: TMenuItem
+        Caption = 'Χρώμα γεμίσματος'
+        OnClick = epilogh_xrwma_gemismatosClick
+      end
+      object epilogh_keimeno: TMenuItem
+        Caption = 'Κείμενο'
+        OnClick = epilogh_keimenoClick
+      end
+      object epilogh_eidos_grammhs: TMenuItem
+        Caption = 'Είδος γραμμής'
+        OnClick = epilogh_eidos_grammhsClick
+      end
     end
     object MenuItem5: TMenuItem
       Caption = 'Βοήθεια'
     end
   end
-  object OpenDialog1: TOpenDialog
-    Left = 232
-    Top = 8
+  object Anoigma: TOpenDialog
+    Left = 208
+    Top = 32
   end
-  object SaveDialog1: TSaveDialog
-    Left = 264
-    Top = 16
+  object Apo9hkeush: TSaveDialog
+    Left = 280
+    Top = 32
+  end
+  object Xrwma: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 352
+    Top = 32
+  end
+  object Morfh_Keimenou: TFontDialog
+    Title = 'Μορφή κειμένου'
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 416
+    Top = 32
   end
 end
