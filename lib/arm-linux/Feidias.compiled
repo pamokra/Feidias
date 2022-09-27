@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/home/pi/FreePascal/fpc/bin/fpc" Date="1549860816"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -Fi/home/pi/Feidias/lib/arm-linux -Fu/home/pi/FreePascal/lazarus/lcl/units/arm-linux/gtk2 -Fu/home/pi/FreePascal/lazarus/lcl/units/arm-linux -Fu/home/pi/FreePascal/lazarus/components/lazutils/lib/arm-linux -Fu/home/pi/FreePascal/lazarus/packager/units/arm-linux -Fu/home/pi/Feidias/ -FU/home/pi/Feidias/lib/arm-linux/ -FE/home/pi/Feidias/ -o/home/pi/Feidias/Feidias -dLCL -dLCLgtk2 Feidias.lpr"/>
-</CONFIG>
