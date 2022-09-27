@@ -23,10 +23,10 @@ grammatoseira:String;
 xrwma_grammatoseiras:TColor;
 eidos_grammhs:String;
 
-procedure topo9ethsh_labwn;
-
 procedure metakinhsh_labwn;
+
 public
+
 labh_ep_ar,labh_ep_de3,labh_kat_ar,labh_kat_de3:TLabh;
 constructor Create(Idiokt:TComponent);override;
 destructor Destroy;override;
@@ -38,6 +38,7 @@ procedure diadikasiaTrabhgmatos(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 procedure telosTrabhgmatos(Sender:TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
+procedure topo9ethsh_labwn;
 procedure katarghsh_labwn;
 function pare_tupo:integer;
 procedure vale_tupo(tup:integer);
@@ -192,6 +193,7 @@ begin
 if balelabes then
 begin
 topo9ethsh_labwn;
+TSxediasthrio(Idiokthths).Katarghsh_Epiloghs_Ektos_Apo(Self);
 TSxediasthrio(Idiokthths).vale_Epilemeno(Self);
 end else
 begin
@@ -215,12 +217,14 @@ if not balelabes then
 begin
 topo9ethsh_labwn;
 balelabes:=true;
+TSxediasthrio(Idiokthths).vale_Epilemeno(Self);
 end;
    Self.Left:=Self.Left+(X-px);
    Self.Top:=Self.Top+(Y-py);
    metakinhsh_labwn;
    TSxediasthrio(idiokthths).Invalidate;
 end;
+
 procedure TSxhma.telosTrabhgmatos(Sender:TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -229,6 +233,7 @@ if not balelabes then
 begin
   topo9ethsh_labwn;
   balelabes:=true;
+  TSxediasthrio(Idiokthths).vale_Epilemeno(Self);
 end;
 
 end;
@@ -248,6 +253,7 @@ labh_kat_de3.Left:=Self.Width+Self.left-5;
 labh_kat_de3.Top:=Self.Top+Self.Height-5;
 TSxediasthrio(idiokthths).InsertControl(labh_kat_de3);
 end;
+
 procedure TSxhma.metakinhsh_labwn;
 begin
 labh_ep_ar.Left:=Self.left-5;

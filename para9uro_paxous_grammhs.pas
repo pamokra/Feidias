@@ -16,7 +16,8 @@ type
     Button2: TButton;
     pl_paxos_grammhs: TEdit;
     Label1: TLabel;
-    UpDown1: TUpDown;
+    koumpi_PanwKatw: TUpDown;
+    procedure koumpi_PanwKatwClick(Sender: TObject; Button: TUDBtnType);
   private
 
   public
@@ -29,6 +30,27 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TPaxos_Grammhs }
+
+procedure TPaxos_Grammhs.koumpi_PanwKatwClick(Sender: TObject;
+  Button: TUDBtnType);
+var ari9mos:integer;
+begin
+  ari9mos:=StrToInt(pl_paxos_grammhs.Text);
+  if Button=btNext then
+  begin
+    if ari9mos=30 then exit;
+    Inc(ari9mos);
+    pl_paxos_grammhs.Text:=IntToStr(ari9mos);
+  end;
+  if Button=btPrev then
+  begin
+    if ari9mos=1 then exit;
+    Dec(ari9mos);
+    pl_paxos_grammhs.Text:=IntToStr(ari9mos);
+  end;
+end;
 
 end.
 

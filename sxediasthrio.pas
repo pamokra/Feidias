@@ -17,7 +17,11 @@ type TSxediasthrio=class(TPanel)
   Shift: TShiftState; X, Y: Integer);
   public
     procedure KataxwrhseSxhma(sx:TSxhma);
+    procedure KataxwrhseSxhmasthnArxh(sx:TSxhma);
     procedure AfaireseSxhma(sx:TSxhma);
+    procedure Epilogh_Olwn;
+    procedure Epilogh_Ektos_Apo(sx:TSxhma);
+    procedure Katarghsh_Epiloghs_Ektos_Apo(sx:TSxhma);
     function pare_Epilegmeno:TSxhma;
     procedure vale_Epilemeno(sx:TSxhma);
     destructor Destroy;override;
@@ -65,6 +69,12 @@ begin
   InsertControl(sx);
 end;
 
+procedure TSxediasthrio.KataxwrhseSxhmasthnArxh(sx:TSxhma);
+begin
+  lista_sxhmatwn.Insert(0,sx);
+  InsertControl(sx,0);
+end;
+
 procedure TSxediasthrio.AfaireseSxhma(sx:TSxhma);
 begin
   lista_sxhmatwn.Remove(sx);
@@ -79,6 +89,44 @@ end;
 procedure TSxediasthrio.vale_Epilemeno(sx:TSxhma);
 begin
 epilegmeno_sxhma:=sx;
+end;
+
+procedure TSxediasthrio.Epilogh_Olwn;
+var t:integer;
+begin
+for t:=0 to lista_sxhmatwn.Count-1 do
+begin
+  if Controls[t].ClassType=TSxhma then
+  begin
+     TSxhma(lista_sxhmatwn[t]).topo9ethsh_labwn;
+  end;
+end;
+end;
+
+procedure TSxediasthrio.Epilogh_Ektos_Apo(sx:TSxhma);
+var t:integer;
+begin
+for t:=0 to lista_sxhmatwn.Count-1 do
+begin
+  if Controls[t].ClassType=TSxhma then
+  begin
+     if sx=TSxhma(lista_sxhmatwn[t]) then
+        TSxhma(lista_sxhmatwn[t]).topo9ethsh_labwn;
+  end;
+end;
+end;
+
+procedure TSxediasthrio.Katarghsh_Epiloghs_Ektos_Apo(sx:TSxhma);
+var t:integer;
+begin
+for t:=0 to lista_sxhmatwn.Count-1 do
+begin
+  if Controls[t].ClassType=TSxhma then
+  begin
+    if sx<>TSxhma(lista_sxhmatwn[t]) then
+        TSxhma(lista_sxhmatwn[t]).katarghsh_labwn;
+  end;
+end;
 end;
 
 end.

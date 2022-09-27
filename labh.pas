@@ -27,7 +27,7 @@ end;
 
 implementation
 
-uses sxhma;
+uses sxhma, kurio_para9uro;
 var tr_sxhma:TSxhma;
 
 constructor TLabh.Create(Idiokt:TComponent);
@@ -61,6 +61,7 @@ begin
     px:=X;
  py:=Y;
  pathse:=true;
+ tr_sxhma:=Kurio.trexon_sxediasthrio.pare_Epilegmeno;
 end;
 end;
 

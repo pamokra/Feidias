@@ -39,6 +39,7 @@ object Paxos_Grammhs: TPaxos_Grammhs
     Top = 200
     Width = 107
     Caption = 'Εφαρμογή'
+    ModalResult = 1
     TabOrder = 2
   end
   object Button2: TButton
@@ -47,6 +48,7 @@ object Paxos_Grammhs: TPaxos_Grammhs
     Top = 200
     Width = 104
     Caption = 'Απόρριψη'
+    ModalResult = 2
     TabOrder = 3
   end
 end

@@ -32,7 +32,7 @@ object Kurio: TKurio
       TabOrder = 0
     end
   end
-  object Panel1: TPanel
+  object perioxh_Ergaleiwn: TPanel
     Left = 0
     Height = 535
     Top = 72
@@ -41,7 +41,8 @@ object Kurio: TKurio
     ClientHeight = 535
     ClientWidth = 66
     TabOrder = 1
-    object SpeedButton1: TSpeedButton
+    object koumpi_or9ogwniou: TSpeedButton
+      Tag = 1
       Left = 0
       Height = 32
       Top = 8
@@ -88,28 +89,31 @@ object Kurio: TKurio
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFF
       }
-      OnClick = SpeedButton1Click
+      OnClick = koumpi_ergaleiou
     end
-    object SpeedButton2: TSpeedButton
+    object koumpi_kuklou: TSpeedButton
+      Tag = 2
       Left = 32
       Height = 32
       Top = 8
       Width = 32
-      OnClick = SpeedButton2Click
+      OnClick = koumpi_ergaleiou
     end
-    object SpeedButton9: TSpeedButton
+    object koumpi_str_or9ogwniou: TSpeedButton
+      Tag = 3
       Left = 1
       Height = 32
       Top = 40
       Width = 31
-      OnClick = SpeedButton9Click
+      OnClick = koumpi_ergaleiou
     end
-    object SpeedButton10: TSpeedButton
+    object koumpi_grammhs: TSpeedButton
+      Tag = 4
       Left = 32
       Height = 32
       Top = 40
       Width = 32
-      OnClick = SpeedButton10Click
+      OnClick = koumpi_ergaleiou
     end
   end
   object Panel2: TPanel
@@ -283,6 +287,9 @@ object Kurio: TKurio
         Caption = 'Αποθήκευση ως ...'
         OnClick = epilogh_Apo9hkeush_WsClick
       end
+      object MenuItem12: TMenuItem
+        Caption = '-'
+      end
       object MenuItem10: TMenuItem
         Caption = 'Έξοδος'
         OnClick = MenuItem10Click
@@ -290,21 +297,72 @@ object Kurio: TKurio
     end
     object MenuItem2: TMenuItem
       Caption = 'Επεξεργασία'
-      object MenuItem11: TMenuItem
+      object epilogh_Apokoph: TMenuItem
         Caption = 'Αποκοπή'
+        ShortCut = 16472
+        OnClick = epilogh_ApokophClick
       end
-      object MenuItem12: TMenuItem
+      object epilogh_Antigrafh: TMenuItem
         Caption = 'Αντιγραφή'
+        ShortCut = 16451
+        OnClick = epilogh_AntigrafhClick
       end
-      object MenuItem13: TMenuItem
+      object epilogh_Epikollhsh: TMenuItem
         Caption = 'Επικόλληση'
+        ShortCut = 16470
+        OnClick = epilogh_EpikollhshClick
       end
       object MenuItem9: TMenuItem
         Caption = '-'
       end
       object epilogh_diagrafh: TMenuItem
         Caption = 'Διαγραφή'
+        ShortCut = 46
         OnClick = epilogh_diagrafhClick
+      end
+      object MenuItem8: TMenuItem
+        Caption = '-'
+      end
+      object epilogh_Metakinhsh: TMenuItem
+        Caption = 'Μετακίνηση'
+        object epilogh_Metakinhsh_Aristera: TMenuItem
+          Caption = 'Μετακίνηση αριστερά'
+          ShortCut = 37
+          OnClick = epilogh_Metakinhsh_AristeraClick
+        end
+        object epilogh_Metakinhsh_Deksia: TMenuItem
+          Caption = 'Μετακίνηση δεξιά'
+          ShortCut = 39
+          OnClick = epilogh_Metakinhsh_DeksiaClick
+        end
+        object epilogh_Metakinhsh_Epanw: TMenuItem
+          Caption = 'Μετακίνηση επάνω'
+          ShortCut = 38
+          OnClick = epilogh_Metakinhsh_EpanwClick
+        end
+        object epilogh_Metakinhsh_Katw: TMenuItem
+          Caption = 'Μετακίνηση κάτω'
+          ShortCut = 40
+          OnClick = epilogh_Metakinhsh_KatwClick
+        end
+      end
+      object epilogh_Diata3hs: TMenuItem
+        Caption = 'Διάταξη'
+        object epilogh_Metafora_Proskhnio: TMenuItem
+          Caption = 'Μεταφορά στο Προσκήνιο'
+          OnClick = epilogh_Metafora_ProskhnioClick
+        end
+        object epilogh_Metafora_Paraskhnio: TMenuItem
+          Caption = 'Μεταφορά στο Παρασκήνιο'
+          OnClick = epilogh_Metafora_ParaskhnioClick
+        end
+      end
+      object MenuItem11: TMenuItem
+        Caption = '-'
+      end
+      object epilogh_EpiloghOlwn: TMenuItem
+        Caption = 'Επιλογή Όλων'
+        OnClick = epilogh_EpiloghOlwnClick
       end
     end
     object MenuItem3: TMenuItem
