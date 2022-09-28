@@ -24,12 +24,17 @@ type
     epilogh_Diata3hs: TMenuItem;
     epilogh_Metafora_Proskhnio: TMenuItem;
     epilogh_Metafora_Paraskhnio: TMenuItem;
+    koumpi_rombos: TSpeedButton;
+    koumpi_rombos1: TSpeedButton;
+    koumpi_rombos2: TSpeedButton;
+    koumpi_trapezio: TSpeedButton;
     MenuItem11: TMenuItem;
     epilogh_EpiloghOlwn: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     Morfh_Keimenou: TFontDialog;
+    koumpi_epikollhsh: TSpeedButton;
     Xrwma: TColorDialog;
     KurioMenou: TMainMenu;
     MenuItem1: TMenuItem;
@@ -62,10 +67,10 @@ type
     koumpi_kuklou: TSpeedButton;
     SpeedButton3: TSpeedButton;
     koumpiDhmiourgias: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
+    koumpiAnoigma: TSpeedButton;
+    koumpiApo9hkeush: TSpeedButton;
+    koumpi_apokoph: TSpeedButton;
+    koumpi_antigrafh: TSpeedButton;
     koumpi_str_or9ogwniou: TSpeedButton;
     procedure epilogh_ApokophClick(Sender: TObject);
     procedure epilogh_diagrafhClick(Sender: TObject);
@@ -84,6 +89,9 @@ type
     procedure epilogh_xrwma_grammhsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure koumpi_antigrafhClick(Sender: TObject);
+    procedure koumpi_apokophClick(Sender: TObject);
+    procedure koumpi_epikollhshClick(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
     procedure epilogh_AntigrafhClick(Sender: TObject);
     procedure epilogh_EpikollhshClick(Sender: TObject);
@@ -102,6 +110,9 @@ type
     procedure apo9hkeush_arxeiou(arx:String);
     procedure kataskeuh_sxhmatos(tupos:integer);
     procedure diagrafh;
+    procedure apokoph;
+    procedure antigrafh;
+    procedure epikollhsh;
   public
     trexon_sxediasthrio:TSxediasthrio;
 
@@ -118,6 +129,37 @@ uses para9uro_paxous_grammhs, para9uro_eisagwghs_keimenou,
 {$R *.lfm}
 
 { TKurio }
+
+procedure TKurio.epikollhsh;
+var sx:TSxhma;
+begin
+  if proxeiro<>nil then
+  begin
+    sx:=TSxhma.Create(trexon_sxediasthrio);
+    sx.AutoSize:=false;
+    sx.vale_xarakthristika(proxeiro);
+    sx.Left:=sx.Left+5;
+    sx.Top:=sx.Top+5;
+    trexon_sxediasthrio.KataxwrhseSxhma(sx);
+    trexon_sxediasthrio.vale_Epilemeno(sx);
+  end;
+end;
+
+procedure TKurio.antigrafh;
+begin
+  if trexon_sxediasthrio.pare_Epilegmeno<>nil then
+  begin
+     proxeiro:=trexon_sxediasthrio.pare_Epilegmeno;
+  end;
+end;
+
+procedure TKurio.apokoph;
+begin
+  if trexon_sxediasthrio.pare_Epilegmeno=nil then exit;
+  proxeiro:=trexon_sxediasthrio.pare_Epilegmeno;
+  trexon_sxediasthrio.AfaireseSxhma(trexon_sxediasthrio.pare_Epilegmeno);
+  proxeiro.katarghsh_labwn;
+end;
 
 procedure TKurio.diagrafh;
 begin
@@ -351,25 +393,12 @@ end;
 
 procedure TKurio.epilogh_AntigrafhClick(Sender: TObject);
 begin
-  if trexon_sxediasthrio.pare_Epilegmeno<>nil then
-  begin
-     proxeiro:=trexon_sxediasthrio.pare_Epilegmeno;
-  end;
+  antigrafh;
 end;
 
 procedure TKurio.epilogh_EpikollhshClick(Sender: TObject);
-var sx:TSxhma;
 begin
-  if proxeiro<>nil then
-  begin
-    sx:=TSxhma.Create(trexon_sxediasthrio);
-    sx.AutoSize:=false;
-    sx.vale_xarakthristika(proxeiro);
-    sx.Left:=sx.Left+5;
-    sx.Top:=sx.Top+5;
-    trexon_sxediasthrio.KataxwrhseSxhma(sx);
-    trexon_sxediasthrio.vale_Epilemeno(sx);
-  end;
+  epikollhsh;
 end;
 
 procedure TKurio.MenuItem6Click(Sender: TObject);
@@ -422,10 +451,7 @@ end;
 
 procedure TKurio.epilogh_ApokophClick(Sender: TObject);
 begin
-  if trexon_sxediasthrio.pare_Epilegmeno=nil then exit;
-  proxeiro:=trexon_sxediasthrio.pare_Epilegmeno;
-  trexon_sxediasthrio.AfaireseSxhma(trexon_sxediasthrio.pare_Epilegmeno);
-  proxeiro.katarghsh_labwn;
+   apokoph;
 end;
 
 procedure TKurio.epilogh_keimenoClick(Sender: TObject);
@@ -536,6 +562,21 @@ end;
 procedure TKurio.FormDestroy(Sender: TObject);
 begin
   onoma_arxeiou.Free;
+end;
+
+procedure TKurio.koumpi_antigrafhClick(Sender: TObject);
+begin
+  antigrafh;
+end;
+
+procedure TKurio.koumpi_apokophClick(Sender: TObject);
+begin
+  apokoph;
+end;
+
+procedure TKurio.koumpi_epikollhshClick(Sender: TObject);
+begin
+  epikollhsh;
 end;
 
 procedure TKurio.MenuItem7Click(Sender: TObject);

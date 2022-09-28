@@ -105,6 +105,7 @@ end;
 
 procedure TSxhma.Paint;
 var thesix,thesiy,platos,uyos:integer;
+    shmeia:array[0..7] of TPoint;
 begin
   inherited;
 
@@ -160,6 +161,7 @@ begin
        Canvas.Ellipse(thesix,thesiy,platos,uyos);
        Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
     end;
+
   if tupos=3 then
     if xrwma_gemismatos=clNone then
     begin
@@ -173,6 +175,78 @@ begin
 
   if tupos=4 then
     Canvas.Line(thesix,thesiy,platos,uyos);
+
+  if tupos=5 then
+    if xrwma_gemismatos=clNone then
+    begin
+       shmeia[0]:=TPoint.Create(Width div 2,thesiy);
+       shmeia[1]:=TPoint.Create(Width-thesix,Height div 2);
+       shmeia[2]:=TPoint.Create(Width div 2,Height-thesiy);
+       shmeia[3]:=TPoint.Create(thesix,Height div 2);
+       Canvas.Polygon(shmeia,false,0,4);
+    end
+    else
+    begin
+       shmeia[0]:=TPoint.Create(Width div 2,thesiy);
+       shmeia[1]:=TPoint.Create(Width-thesix,Height div 2);
+       shmeia[2]:=TPoint.Create(Width div 2,Height-thesiy);
+       shmeia[3]:=TPoint.Create(thesix,Height div 2);
+       Canvas.Polygon(shmeia,false,0,4);
+       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
+    end;
+
+    if tupos=6 then
+    if xrwma_gemismatos=clNone then
+    begin
+       shmeia[0]:=TPoint.Create(thesix, Height-thesiy - 1);
+       shmeia[1]:=TPoint.Create(Width div 4 + thesix,thesiy);
+       shmeia[2]:=TPoint.Create(Width - Width div 4 - thesix,thesiy);
+       shmeia[3]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,4);
+    end
+    else
+    begin
+       shmeia[0]:=TPoint.Create(thesix, Height-thesiy - 1);
+       shmeia[1]:=TPoint.Create(Width div 4 + thesix,thesiy);
+       shmeia[2]:=TPoint.Create(Width - Width div 4 - thesix,thesiy);
+       shmeia[3]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,4);
+       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
+    end;
+
+    if tupos=7 then
+    if xrwma_gemismatos=clNone then
+    begin
+       shmeia[0]:=TPoint.Create(Width div 2, thesiy);
+       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,3);
+    end
+    else
+    begin
+       shmeia[0]:=TPoint.Create(Width div 2, thesiy);
+       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,3);
+       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
+    end;
+
+    if tupos=8 then
+    if xrwma_gemismatos=clNone then
+    begin
+       shmeia[0]:=TPoint.Create(thesix, thesiy);
+       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,3);
+    end
+    else
+    begin
+       shmeia[0]:=TPoint.Create(thesix, thesiy);
+       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+       Canvas.Polygon(shmeia,false,0,3);
+       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
+    end;
 
   if keimeno<>'' then
   begin
