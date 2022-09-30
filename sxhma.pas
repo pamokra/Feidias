@@ -24,7 +24,17 @@ xrwma_grammatoseiras:TColor;
 eidos_grammhs:String;
 
 procedure metakinhsh_labwn;
-
+procedure sxediash(cnv:TCanvas);
+procedure or9ogwnio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure kuklos(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure str_or9ogwnio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure grammh(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure rombos(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure trapezio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure trigwno(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure or9_trigwno(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+procedure vale_eidos_grammhs(cnv:TCanvas);
+procedure vale_keimeno(cnv:TCanvas);
 public
 
 labh_ep_ar,labh_ep_de3,labh_kat_ar,labh_kat_de3:TLabh;
@@ -103,158 +113,161 @@ begin
 
 end;
 
-procedure TSxhma.Paint;
+procedure TSxhma.vale_eidos_grammhs(cnv:TCanvas);
+begin
+  if eidos_grammhs='psSolid' then
+     cnv.Pen.Style:=psSolid;
+  if eidos_grammhs='psClear' then
+     cnv.Pen.Style:=psClear;
+  if eidos_grammhs='psDash' then
+     cnv.Pen.Style:=psDash;
+  if eidos_grammhs='psDashDot' then
+     cnv.Pen.Style:=psDashDot;
+  if eidos_grammhs='psDashDotDot' then
+     cnv.Pen.Style:=psDashDotDot;
+  if eidos_grammhs='psDot' then
+     cnv.Pen.Style:=psDot;
+  if eidos_grammhs='psInsideFrame' then
+     cnv.Pen.Style:=psInsideframe;
+  if eidos_grammhs='psPattern' then
+     cnv.Pen.Style:=psPattern;
+end;
+
+procedure TSxhma.vale_keimeno(cnv:TCanvas);
+begin
+  cnv.Font.Size:=mege9os_grammatoseiras;
+  cnv.Font.Name:=grammatoseira;
+  cnv.Font.Color:=xrwma_grammatoseiras;
+  cnv.TextRect(TRect.Create(0,0,Width,Height),(Width-cnv.TextWidth(keimeno)) div 2, (Height-cnv.TextHeight(keimeno)) div 2, keimeno);
+end;
+
+procedure TSxhma.or9ogwnio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+begin
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FillRect(thesix,thesiy,platos,uyos);
+  end;
+  cnv.Rectangle(thesix,thesiy,platos,uyos);
+end;
+
+procedure TSxhma.kuklos(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+begin
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+  cnv.Ellipse(thesix,thesiy,platos,uyos);
+end;
+
+procedure TSxhma.str_or9ogwnio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+begin
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+  cnv.RoundRect(thesix,thesiy,platos,uyos,10,10);
+end;
+
+procedure TSxhma.grammh(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+begin
+  cnv.Line(thesix,thesiy,platos,uyos);
+end;
+
+procedure TSxhma.rombos(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+var shmeia:array[0..7] of TPoint;
+begin
+  shmeia[0]:=TPoint.Create(Width div 2,thesiy);
+  shmeia[1]:=TPoint.Create(Width-thesix,Height div 2);
+  shmeia[2]:=TPoint.Create(Width div 2,Height-thesiy-1);
+  shmeia[3]:=TPoint.Create(thesix,Height div 2);
+  cnv.Polygon(shmeia,false,0,4);
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+end;
+
+procedure TSxhma.trapezio(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+var shmeia:array[0..7] of TPoint;
+begin
+  shmeia[0]:=TPoint.Create(thesix, Height-thesiy - 1);
+  shmeia[1]:=TPoint.Create(Width div 4 + thesix,thesiy);
+  shmeia[2]:=TPoint.Create(Width - Width div 4 - thesix,thesiy);
+  shmeia[3]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+  cnv.Polygon(shmeia,false,0,4);
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+end;
+
+procedure TSxhma.trigwno(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+var shmeia:array[0..7] of TPoint;
+begin
+  shmeia[0]:=TPoint.Create(Width div 2, thesiy);
+  shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+  shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+  cnv.Polygon(shmeia,false,0,3);
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+end;
+
+procedure TSxhma.or9_trigwno(cnv:TCanvas;thesix,thesiy,platos,uyos:integer);
+var shmeia:array[0..7] of TPoint;
+begin
+  shmeia[0]:=TPoint.Create(thesix, thesiy);
+  shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
+  shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
+  cnv.Polygon(shmeia,false,0,3);
+  if xrwma_gemismatos<>clNone then
+  begin
+     cnv.FloodFill(thesix+platos div 2, thesiy+uyos div 2, cnv.Brush.Color, fsBorder);
+  end;
+end;
+
+procedure TSxhma.sxediash(cnv:TCanvas);
 var thesix,thesiy,platos,uyos:integer;
     shmeia:array[0..7] of TPoint;
 begin
+
+cnv.Pen.Color := xrwma_grammhs;
+cnv.Pen.Width := paxos_grammhs;
+
+vale_eidos_grammhs(cnv);
+
+if xrwma_gemismatos<>clNone then
+   cnv.Brush.Color := xrwma_gemismatos;
+
+thesix:=paxos_grammhs-1;
+thesiy:=paxos_grammhs-1;
+
+platos:=Width-thesix;
+uyos:=Height-thesiy;
+
+case tupos of
+1:or9ogwnio(cnv,thesix,thesiy,platos,uyos);
+2:kuklos(cnv,thesix,thesiy,platos,uyos);
+3:str_or9ogwnio(cnv,thesix,thesiy,platos,uyos);
+4:grammh(cnv,thesix,thesiy,platos,uyos);
+5:rombos(cnv,thesix,thesiy,platos,uyos);
+6:trapezio(cnv,thesix,thesiy,platos,uyos);
+7:trigwno(cnv,thesix,thesiy,platos,uyos);
+8:or9_trigwno(cnv,thesix,thesiy,platos,uyos);
+end;
+
+if keimeno<>'' then
+begin
+  vale_keimeno(cnv);
+end;
+
+end;
+
+procedure TSxhma.Paint;
+begin
   inherited;
-
-  Canvas.Pen.Color := xrwma_grammhs;
-  Canvas.pen.Width := paxos_grammhs;
-
-  if eidos_grammhs='psSolid' then
-     Canvas.Pen.Style:=psSolid;
-  if eidos_grammhs='psClear' then
-     Canvas.Pen.Style:=psClear;
-  if eidos_grammhs='psDash' then
-     Canvas.Pen.Style:=psDash;
-  if eidos_grammhs='psDashDot' then
-     Canvas.Pen.Style:=psDashDot;
-  if eidos_grammhs='psDashDotDot' then
-     Canvas.Pen.Style:=psDashDotDot;
-  if eidos_grammhs='psDot' then
-     Canvas.Pen.Style:=psDot;
-  if eidos_grammhs='psInsideFrame' then
-     Canvas.Pen.Style:=psInsideframe;
-  if eidos_grammhs='psPattern' then
-     Canvas.Pen.Style:=psPattern;
-
-  if xrwma_gemismatos<>clNone then
-     Canvas.Brush.Color := xrwma_gemismatos;
-
-  thesix:=paxos_grammhs-1;
-  thesiy:=paxos_grammhs-1;
-
-  platos:=Width-thesix;
-  uyos:=Height-thesiy;
-
-  if tupos=1 then
-  begin
-    if xrwma_gemismatos=clNone then
-    begin
-       Canvas.Rectangle(thesix,thesiy,platos,uyos);
-    end
-    else
-    begin
-       Canvas.FillRect(thesix,thesiy,platos,uyos);
-       Canvas.Rectangle(thesix,thesiy,platos,uyos);
-    end;
-  end;
-
-  if tupos=2 then
-    if xrwma_gemismatos=clNone then
-    begin
-       Canvas.Ellipse(thesix,thesiy,platos,uyos);
-    end
-    else
-    begin
-       Canvas.Ellipse(thesix,thesiy,platos,uyos);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-  if tupos=3 then
-    if xrwma_gemismatos=clNone then
-    begin
-       Canvas.RoundRect(thesix,thesiy,platos,uyos,10,10);
-    end
-    else
-    begin
-       Canvas.RoundRect(thesix,thesiy,platos,uyos,10,10);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-  if tupos=4 then
-    Canvas.Line(thesix,thesiy,platos,uyos);
-
-  if tupos=5 then
-    if xrwma_gemismatos=clNone then
-    begin
-       shmeia[0]:=TPoint.Create(Width div 2,thesiy);
-       shmeia[1]:=TPoint.Create(Width-thesix,Height div 2);
-       shmeia[2]:=TPoint.Create(Width div 2,Height-thesiy);
-       shmeia[3]:=TPoint.Create(thesix,Height div 2);
-       Canvas.Polygon(shmeia,false,0,4);
-    end
-    else
-    begin
-       shmeia[0]:=TPoint.Create(Width div 2,thesiy);
-       shmeia[1]:=TPoint.Create(Width-thesix,Height div 2);
-       shmeia[2]:=TPoint.Create(Width div 2,Height-thesiy);
-       shmeia[3]:=TPoint.Create(thesix,Height div 2);
-       Canvas.Polygon(shmeia,false,0,4);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-    if tupos=6 then
-    if xrwma_gemismatos=clNone then
-    begin
-       shmeia[0]:=TPoint.Create(thesix, Height-thesiy - 1);
-       shmeia[1]:=TPoint.Create(Width div 4 + thesix,thesiy);
-       shmeia[2]:=TPoint.Create(Width - Width div 4 - thesix,thesiy);
-       shmeia[3]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,4);
-    end
-    else
-    begin
-       shmeia[0]:=TPoint.Create(thesix, Height-thesiy - 1);
-       shmeia[1]:=TPoint.Create(Width div 4 + thesix,thesiy);
-       shmeia[2]:=TPoint.Create(Width - Width div 4 - thesix,thesiy);
-       shmeia[3]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,4);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-    if tupos=7 then
-    if xrwma_gemismatos=clNone then
-    begin
-       shmeia[0]:=TPoint.Create(Width div 2, thesiy);
-       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,3);
-    end
-    else
-    begin
-       shmeia[0]:=TPoint.Create(Width div 2, thesiy);
-       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,3);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-    if tupos=8 then
-    if xrwma_gemismatos=clNone then
-    begin
-       shmeia[0]:=TPoint.Create(thesix, thesiy);
-       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,3);
-    end
-    else
-    begin
-       shmeia[0]:=TPoint.Create(thesix, thesiy);
-       shmeia[1]:=TPoint.Create(Width - thesix, Height - thesiy - 1);
-       shmeia[2]:=TPoint.Create(thesix, Height - thesiy - 1);
-       Canvas.Polygon(shmeia,false,0,3);
-       Canvas.FloodFill(thesix+platos div 2, thesiy+uyos div 2, Canvas.Brush.Color, fsBorder);
-    end;
-
-  if keimeno<>'' then
-  begin
-    Canvas.Font.Size:=mege9os_grammatoseiras;
-    Canvas.Font.Name:=grammatoseira;
-    Canvas.Font.Color:=xrwma_grammatoseiras;
-    Canvas.TextRect(TRect.Create(0,0,Width,Height),(Width-Canvas.TextWidth(keimeno)) div 2, (Height-Canvas.TextHeight(keimeno)) div 2, keimeno);
-  end;
+  sxediash(Canvas);
 end;
 
 procedure TSxhma.pathseKlik(Sender:TObject);
