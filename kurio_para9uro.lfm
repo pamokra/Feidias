@@ -1024,7 +1024,131 @@ object Kurio: TKurio
     Top = 607
     Width = 1013
     Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 1013
     TabOrder = 4
+    object Label1: TLabel
+      Left = 176
+      Height = 22
+      Top = 16
+      Width = 48
+      Caption = 'Σχήμα:'
+      ParentColor = False
+    end
+    object Panel1: TPanel
+      Left = 232
+      Height = 34
+      Top = 8
+      Width = 274
+      ClientHeight = 34
+      ClientWidth = 274
+      Color = clWhite
+      ParentColor = False
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 8
+        Height = 22
+        Top = 8
+        Width = 13
+        Caption = 'X:'
+        ParentColor = False
+      end
+      object ant_thesi_x: TLabel
+        Left = 24
+        Height = 1
+        Top = 8
+        Width = 1
+        ParentColor = False
+      end
+      object sxhma_thesi_x: TLabel
+        Left = 24
+        Height = 22
+        Top = 8
+        Width = 9
+        Caption = '0'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 56
+        Height = 22
+        Top = 8
+        Width = 13
+        Caption = 'Y:'
+        ParentColor = False
+      end
+      object sxhma_thesi_y: TLabel
+        Left = 72
+        Height = 22
+        Top = 8
+        Width = 9
+        Caption = '0'
+        ParentColor = False
+      end
+      object Label6: TLabel
+        Left = 104
+        Height = 22
+        Top = 8
+        Width = 27
+        Caption = 'Πλ.:'
+        ParentColor = False
+      end
+      object sxhma_platos: TLabel
+        Left = 136
+        Height = 22
+        Top = 8
+        Width = 9
+        Caption = '0'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 168
+        Height = 22
+        Top = 8
+        Width = 29
+        Caption = 'Ύψ.:'
+        ParentColor = False
+      end
+      object sxhma_uyos: TLabel
+        Left = 200
+        Height = 22
+        Top = 8
+        Width = 9
+        Caption = '0'
+        ParentColor = False
+      end
+    end
+    object Label3: TLabel
+      Left = 8
+      Height = 22
+      Top = 16
+      Width = 13
+      Caption = 'X:'
+      ParentColor = False
+    end
+    object sxediasthrio_thesi_x: TLabel
+      Left = 24
+      Height = 22
+      Top = 16
+      Width = 9
+      Caption = '0'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 56
+      Height = 22
+      Top = 16
+      Width = 13
+      Caption = 'Y:'
+      ParentColor = False
+    end
+    object sxediasthrio_thesi_y: TLabel
+      Left = 72
+      Height = 22
+      Top = 16
+      Width = 9
+      Caption = '0'
+      ParentColor = False
+    end
   end
   object KurioMenou: TMainMenu
     Left = 784
@@ -1172,6 +1296,16 @@ object Kurio: TKurio
       object epilogh_Apo9hkeush_Ws: TMenuItem
         Caption = 'Αποθήκευση ως ...'
         OnClick = epilogh_Apo9hkeush_WsClick
+      end
+      object MenuItem14: TMenuItem
+        Caption = '-'
+      end
+      object menou_e3agwgh: TMenuItem
+        Caption = 'Εξαγωγή'
+        object epilogh_e3agwgh_se_eikona: TMenuItem
+          Caption = 'Σε εικόνα ...'
+          OnClick = epilogh_e3agwgh_se_eikonaClick
+        end
       end
       object MenuItem12: TMenuItem
         Caption = '-'

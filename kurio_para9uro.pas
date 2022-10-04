@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  ComCtrls, Menus, sxediasthrio, sxhma;
+  ComCtrls, Menus, StdCtrls, sxediasthrio, sxhma, Messages, mhnumata;
 
 type
 
@@ -32,6 +32,15 @@ type
     koumpi_trapezio: TSpeedButton;
     koumpi_paxos_grammhs: TSpeedButton;
     koumpi_morfopoihsh_keimenou: TSpeedButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    ant_thesi_x: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    sxediasthrio_thesi_x: TLabel;
     MenuItem11: TMenuItem;
     epilogh_EpiloghOlwn: TMenuItem;
     MenuItem12: TMenuItem;
@@ -50,11 +59,20 @@ type
     epilogh_emfanishs_ergaleiwn_morfopoihshs: TMenuItem;
     epilogh_emfanishs_ergaleiwn_sxhmatwn: TMenuItem;
     epilogh_emfanishs_ergaleiwn_probolhs: TMenuItem;
+    menou_e3agwgh: TMenuItem;
+    MenuItem14: TMenuItem;
+    epilogh_e3agwgh_se_eikona: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     Morfh_Keimenou: TFontDialog;
     koumpi_epikollhsh: TSpeedButton;
     diaxwristiko1: TPanel;
+    Panel1: TPanel;
+    sxediasthrio_thesi_y: TLabel;
+    sxhma_uyos: TLabel;
+    sxhma_thesi_y: TLabel;
+    sxhma_thesi_x: TLabel;
+    sxhma_platos: TLabel;
     Xrwma: TColorDialog;
     KurioMenou: TMainMenu;
     MenuItem1: TMenuItem;
@@ -94,6 +112,7 @@ type
     koumpi_str_or9ogwniou: TSpeedButton;
     procedure epilogh_ApokophClick(Sender: TObject);
     procedure epilogh_diagrafhClick(Sender: TObject);
+    procedure epilogh_e3agwgh_se_eikonaClick(Sender: TObject);
     procedure epilogh_eidos_grammhsClick(Sender: TObject);
     procedure epilogh_eisagwgh_keimenoClick(Sender: TObject);
     procedure epilogh_Eisagwgh_Antikeimenou(Sender: TObject);
@@ -147,6 +166,9 @@ type
     procedure emfanish_para9urou_xrwmatos_gemismatos;
     procedure emfanish_para9urou_morfhs_keimenou;
     procedure emfanish_para9urou_eidous_grammhs;
+    procedure thesi_sto_sxediasthrio(var Msg: TMessage); message WM_METAKINHSH_SE_SXEDIASTHRIO;
+    procedure thesi_sxhmatos(var Msg: TMessage); message WM_METAKINHSH_SXHMATOS;
+    procedure mege9os_sxhmatos(var Msg: TMessage); message WM_TRABHGMA_SXHMATOS;
   public
     trexon_sxediasthrio:TSxediasthrio;
 
@@ -158,7 +180,7 @@ var
 implementation
 
 uses para9uro_paxous_grammhs, para9uro_eisagwghs_keimenou,
-     para9uro_eidos_grammhs;
+     para9uro_eidos_grammhs, para9uro_diastasewn;
 
 {$R *.lfm}
 
@@ -280,16 +302,25 @@ var
   TabSheet: TTabSheet;
   sxd: TSxediasthrio;
 begin
-  TabSheet := TTabSheet.Create(perioxh_sxediwn);
-  TabSheet.Caption := 'Νέο έγγραφο';
-  onoma_arxeiou.Add('');
-  TabSheet.PageControl := perioxh_sxediwn;
-  perioxh_sxediwn.ActivePage:=TabSheet;
-  sxd:=TSxediasthrio.Create(Self);
-  sxd.Align:=alClient;
-  sxd.Parent:=TabSheet;
-  sxd.Show;
-  trexon_sxediasthrio:=sxd;
+  if Diastaseis.ShowModal=mrOk then
+  begin
+    TabSheet := TTabSheet.Create(perioxh_sxediwn);
+    TabSheet.Caption := 'Νέο έγγραφο';
+    onoma_arxeiou.Add('');
+    TabSheet.PageControl := perioxh_sxediwn;
+    perioxh_sxediwn.ActivePage:=TabSheet;
+    sxd:=TSxediasthrio.Create(Self);
+    sxd.Width:=StrToInt(Diastaseis.pl_platos.Text);
+    sxd.Height :=StrToInt(Diastaseis.pl_uyos.Text);
+    sxd.Color:=clWhite;
+    sxd.BorderWidth := 1;
+    sxd.BorderStyle := bsSingle;
+    sxd.Left:= (TabSheet.Width-sxd.Width) div 2;
+    sxd.Top:= (TabSheet.Height-sxd.Height) div 2;
+    sxd.Parent:=TabSheet;
+    sxd.Show;
+    trexon_sxediasthrio:=sxd;
+  end;
 end;
 
 procedure TKurio.anoigma_arxeiou(arx:String);
@@ -545,6 +576,14 @@ begin
   diagrafh;
 end;
 
+procedure TKurio.epilogh_e3agwgh_se_eikonaClick(Sender: TObject);
+begin
+  if Apo9hkeush.Execute then
+  begin
+    trexon_sxediasthrio.e3agwgh_se_eikona(Apo9hkeush.FileName);
+  end;
+end;
+
 procedure TKurio.epilogh_ApokophClick(Sender: TObject);
 begin
    apokoph;
@@ -706,6 +745,24 @@ begin
   begin
     apo9hkeush_arxeiou(Apo9hkeush.FileName);
   end;
+end;
+
+procedure TKurio.thesi_sto_sxediasthrio(var Msg: TMessage);
+begin
+  sxediasthrio_thesi_x.Caption:=IntToStr(Msg.WParam);
+  sxediasthrio_thesi_y.Caption:=IntToStr(Msg.LParam);
+end;
+
+procedure TKurio.thesi_sxhmatos(var Msg: TMessage);
+begin
+  sxhma_thesi_x.Caption:=IntToStr(Msg.WParam);
+  sxhma_thesi_y.Caption:=IntToStr(Msg.LParam);
+end;
+
+procedure TKurio.mege9os_sxhmatos(var Msg: TMessage);
+begin
+  sxhma_platos.Caption := IntToStr(Msg.WParam);
+  sxhma_uyos.Caption := IntToStr(Msg.LParam);
 end;
 
 end.

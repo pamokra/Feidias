@@ -5,16 +5,19 @@ unit sxediasthrio;
 interface
 
 uses
-  Classes, SysUtils, Controls, ExtCtrls, sxhma;
+  Classes, SysUtils, Controls, ExtCtrls, sxhma, Graphics, mhnumata, LCLIntf, Forms;
 
 type TSxediasthrio=class(TPanel)
   private
+  Idiokthths:TComponent;
   lista_sxhmatwn:TList;
   epilegmeno_sxhma:TSxhma;
   constructor Create(Idiokt:TComponent); override;
 
   procedure pathseKatw(Sender:TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
+  procedure metakinhsh(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
   public
     procedure KataxwrhseSxhma(sx:TSxhma);
     procedure KataxwrhseSxhmasthnArxh(sx:TSxhma);
@@ -24,7 +27,9 @@ type TSxediasthrio=class(TPanel)
     procedure Katarghsh_Epiloghs_Ektos_Apo(sx:TSxhma);
     function pare_Epilegmeno:TSxhma;
     procedure vale_Epilemeno(sx:TSxhma);
+    procedure e3agwgh_se_eikona(arx:String);
     destructor Destroy;override;
+    function pare_Idiokthth:TComponent;
 end;
 
 implementation
@@ -32,9 +37,11 @@ implementation
 constructor TSxediasthrio.Create(Idiokt:TComponent);
 begin
   Inherited Create(Idiokt);
+  Idiokthths:=Idiokt;
   epilegmeno_sxhma:=nil;
   DoubleBuffered:=true;
   OnMouseDown:=@pathseKatw;
+  OnMouseMove :=@metakinhsh;
   lista_sxhmatwn:=TList.Create;
 end;
 
@@ -127,6 +134,39 @@ begin
         TSxhma(lista_sxhmatwn[t]).katarghsh_labwn;
   end;
 end;
+end;
+
+procedure TSxediasthrio.e3agwgh_se_eikona(arx:String);
+var eik:TBitmap;
+    t:integer;
+begin
+   eik:=TBitmap.Create;
+   eik.Width := 400;
+   eik.Height := 400;
+   eik.Canvas.Brush.Color := clWhite;
+   eik.Canvas.FillRect(0,0,eik.Width,eik.Height);
+
+  for t:=0 to Self.ControlCount-1 do
+  begin
+    if Self.Controls[t].ClassNameIs('TSxhma') then
+    begin
+       TSxhma(Self.Controls[t]).sxediash(eik.Canvas, true);
+    end;
+  end;
+
+  eik.SaveToFile(arx);
+  eik.Free;
+end;
+
+procedure TSxediasthrio.metakinhsh(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+  SendMessage(TForm(Idiokthths).Handle,WM_METAKINHSH_SE_SXEDIASTHRIO,Integer(X),Integer(Y));
+end;
+
+function TSxediasthrio.pare_Idiokthth:TComponent;
+begin
+  pare_Idiokthth:=Idiokthths;
 end;
 
 end.
